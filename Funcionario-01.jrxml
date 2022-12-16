@@ -49,16 +49,17 @@ from funcionarios]]>
 	<columnHeader>
 		<band height="30" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="143" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="57b63a57-f93f-4c54-b33f-b1cc6cd74f8c">
+				<reportElement mode="Opaque" x="0" y="0" width="130" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="57b63a57-f93f-4c54-b33f-b1cc6cd74f8c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="33c3d068-106d-4116-a2cd-8384a98ed5f6"/>
 				</reportElement>
+				<box padding="5"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Código]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="143" y="0" width="143" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="c0610f23-aed0-40ba-8ad8-6c1bb510662f">
+				<reportElement mode="Opaque" x="130" y="0" width="155" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="c0610f23-aed0-40ba-8ad8-6c1bb510662f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a7542f19-3ffd-4b89-a566-172ad0e6b81e"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -67,7 +68,7 @@ from funcionarios]]>
 				<text><![CDATA[Nome]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="286" y="0" width="143" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="fb4695a2-c2e8-48ef-b99e-fa0b0efaf22c">
+				<reportElement mode="Opaque" x="285" y="0" width="144" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="fb4695a2-c2e8-48ef-b99e-fa0b0efaf22c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ba844b2a-328f-4509-b521-80071f1b84ba"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -89,10 +90,10 @@ from funcionarios]]>
 	<detail>
 		<band height="30" splitType="Stretch">
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="0" y="0" width="143" height="30" uuid="17d10b51-242f-4893-b423-2a0ec07b2198">
+				<reportElement style="estilo_cores_alternadas" x="0" y="0" width="130" height="30" uuid="17d10b51-242f-4893-b423-2a0ec07b2198">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="33c3d068-106d-4116-a2cd-8384a98ed5f6"/>
 				</reportElement>
-				<box>
+				<box padding="5">
 					<pen lineColor="#D6D6D6"/>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#D6D6D6"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -105,7 +106,7 @@ from funcionarios]]>
 				<textFieldExpression><![CDATA[$F{id_funcionario}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="143" y="0" width="143" height="30" uuid="d493de01-5489-45dd-acc2-2e9b59966f3f">
+				<reportElement style="estilo_cores_alternadas" x="130" y="0" width="155" height="30" uuid="d493de01-5489-45dd-acc2-2e9b59966f3f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a7542f19-3ffd-4b89-a566-172ad0e6b81e"/>
 				</reportElement>
 				<box>
@@ -121,7 +122,7 @@ from funcionarios]]>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="286" y="0" width="143" height="30" uuid="fdb461cf-b020-4aa5-aa9b-d71f7bd8fe3a">
+				<reportElement style="estilo_cores_alternadas" x="285" y="0" width="144" height="30" uuid="fdb461cf-b020-4aa5-aa9b-d71f7bd8fe3a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ba844b2a-328f-4509-b521-80071f1b84ba"/>
 				</reportElement>
 				<box>
