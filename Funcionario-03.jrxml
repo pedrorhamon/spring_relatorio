@@ -79,6 +79,12 @@ from funcionarios f, empresas e]]>
 	<variable name="SALARIO_MEDIA_PAGE" class="java.math.BigDecimal" resetType="Column" calculation="Average">
 		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
 	</variable>
+	<variable name="SALARIO_TOTAL_GERAL" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
+	</variable>
+	<variable name="SALARIO_MEDIA_GERAL" class="java.math.BigDecimal" calculation="Average">
+		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -268,6 +274,35 @@ from funcionarios f, empresas e]]>
 		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="0" width="100" height="30" uuid="d334beb8-897e-4462-8290-58efff7c41d5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="100" height="30" uuid="4f970f43-cc28-4205-aea8-d8fe55d90bf4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Média:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="0" width="100" height="30" uuid="fd0b2af1-ea70-4d63-956f-14f063adcabf"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SALARIO_TOTAL_GERAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="92" height="30" uuid="2e261295-f017-418e-b6d1-5108e1b276cb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SALARIO_MEDIA_GERAL}]]></textFieldExpression>
+			</textField>
+		</band>
 	</summary>
 </jasperReport>
