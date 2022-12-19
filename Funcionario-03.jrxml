@@ -271,10 +271,35 @@ from funcionarios f, empresas e]]>
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="30" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="111" y="0" width="100" height="30" uuid="398ea338-1d0a-4bcd-bb0d-781dba9bb170"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="110" height="30" uuid="3904eca1-cfb0-473d-b191-d383909a5b7d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Relatório criando em]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="30" uuid="44603a60-6819-420d-bec2-f955f4686d7c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="480" y="0" width="92" height="30" uuid="53909fe7-3d0e-4ad3-bc74-7d329c118b8c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
-		<band height="50" splitType="Stretch">
+		<band height="30" splitType="Stretch">
 			<staticText>
 				<reportElement x="180" y="0" width="100" height="30" uuid="d334beb8-897e-4462-8290-58efff7c41d5"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
