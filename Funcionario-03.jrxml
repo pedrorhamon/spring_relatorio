@@ -294,7 +294,7 @@ from funcionarios f, empresas e]]>
 			<textField evaluationTime="Report">
 				<reportElement x="480" y="0" width="92" height="30" uuid="53909fe7-3d0e-4ad3-bc74-7d329c118b8c"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>
