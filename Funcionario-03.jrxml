@@ -300,6 +300,9 @@ from funcionarios f, empresas e]]>
 	</pageFooter>
 	<summary>
 		<band height="30" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="0" width="572" height="30" forecolor="#E3E3E3" backcolor="#E3E3E3" uuid="aff41ff4-528b-406c-a1f5-6409be0cf23a"/>
+			</rectangle>
 			<staticText>
 				<reportElement x="180" y="0" width="100" height="30" uuid="d334beb8-897e-4462-8290-58efff7c41d5"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
