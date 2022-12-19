@@ -73,6 +73,12 @@ from funcionarios f, empresas e]]>
 		<property name="com.jaspersoft.studio.field.tree.path" value="empresas"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<variable name="SALARIO_TOTAL_PAGE" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
+	</variable>
+	<variable name="SALARIO_MEDIA_PAGE" class="java.math.BigDecimal" resetType="Column" calculation="Average">
+		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -227,7 +233,36 @@ from funcionarios f, empresas e]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="0" width="100" height="30" uuid="84b690f7-a842-4d71-a180-aa2222380f7c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="100" height="30" uuid="1ada942c-7619-466b-b160-c4f4816fc729"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Média:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="0" width="100" height="30" uuid="1ec77844-1c47-45c6-a3ff-1380d4b5db50"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SALARIO_TOTAL_PAGE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="92" height="30" uuid="55a4ceed-937d-469f-82bc-1ec4cf4f226a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SALARIO_MEDIA_PAGE}]]></textFieldExpression>
+			</textField>
+		</band>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch"/>
