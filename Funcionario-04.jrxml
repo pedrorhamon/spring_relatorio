@@ -245,7 +245,7 @@ from funcionarios f, empresas e]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="35" splitType="Stretch">
+		<band height="30" splitType="Stretch">
 			<staticText>
 				<reportElement x="180" y="0" width="100" height="30" uuid="84b690f7-a842-4d71-a180-aa2222380f7c"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
