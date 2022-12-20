@@ -298,6 +298,9 @@ from funcionarios f, empresas e]]>
 			</textField>
 		</band>
 	</pageFooter>
+	<lastPageFooter>
+		<band height="50"/>
+	</lastPageFooter>
 	<summary>
 		<band height="30" splitType="Stretch">
 			<rectangle>
