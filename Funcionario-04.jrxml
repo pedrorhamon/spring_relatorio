@@ -306,6 +306,7 @@ from funcionarios f, empresas e]]>
 	</pageFooter>
 	<lastPageFooter>
 		<band height="30">
+			<printWhenExpression><![CDATA[$V{SALARIO_MAIOR} != null && $V{SALARIO_MENOR} != null]]></printWhenExpression>
 			<rectangle>
 				<reportElement mode="Opaque" x="0" y="0" width="572" height="30" forecolor="#FFFF99" backcolor="#FFFF99" uuid="02700a9c-b4be-4ba3-9d74-19ef11b59a5e"/>
 			</rectangle>
