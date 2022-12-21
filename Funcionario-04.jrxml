@@ -73,7 +73,7 @@ from funcionarios f, empresas e]]>
 		<property name="com.jaspersoft.studio.field.tree.path" value="empresas"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<variable name="SALARIO_TOTAL_PAGE" class="java.math.BigDecimal" calculation="Sum">
+	<variable name="SALARIO_TOTAL_PAGE" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
 		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
 	</variable>
 	<variable name="SALARIO_MEDIA_PAGE" class="java.math.BigDecimal" resetType="Column" calculation="Average">
