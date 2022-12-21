@@ -85,10 +85,10 @@ from funcionarios f, empresas e]]>
 	<variable name="SALARIO_MEDIA_GERAL" class="java.math.BigDecimal" calculation="Average">
 		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
 	</variable>
-	<variable name="SALARIO_MAIOR" class="java.math.BigDecimal" resetType="Page" calculation="Highest">
+	<variable name="SALARIO_MAIOR" class="java.math.BigDecimal" calculation="Highest">
 		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
 	</variable>
-	<variable name="SALARIO_MENOR" class="java.math.BigDecimal" resetType="Page" calculation="Lowest">
+	<variable name="SALARIO_MENOR" class="java.math.BigDecimal" calculation="Lowest">
 		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
 	</variable>
 	<background>
