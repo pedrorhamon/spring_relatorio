@@ -180,49 +180,13 @@ FROM jaspercurso.empresas,
 				<text><![CDATA[Nome]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="216" y="0" width="94" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="0a48a436-595e-4536-8a72-8c2a277e5801">
+				<reportElement mode="Opaque" x="216" y="0" width="356" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="0a48a436-595e-4536-8a72-8c2a277e5801">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6bfa77e2-7257-4674-9c6b-5fa64db0bb2d"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[logradouro]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="310" y="0" width="54" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="37217882-eedb-4017-ab98-5133d035b4ce">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="721b67c6-3ca6-4c35-b2ca-7bf7ff6f7de7"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Nº]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="364" y="0" width="76" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="e329bfcc-35e8-4632-9283-2456581fdbf8">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ecfcba8e-29b1-4453-9450-b0e599c0565c"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Bairro]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="440" y="0" width="90" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="4a3b17bf-b38e-4767-b83f-af80287cbb50">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dbbe3e98-97f2-4f36-8a59-ae09dfd29a9a"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Cidade]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="530" y="0" width="42" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="d00c844c-875a-48d4-a0e1-21cbcb09ef87">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2216c2a-1451-402b-a177-268819469027"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[UF]]></text>
+				<text><![CDATA[Endereço Residencial]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -261,7 +225,7 @@ FROM jaspercurso.empresas,
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="215" y="0" width="94" height="30" uuid="0a6f8c3d-e7df-405d-bdba-00f83d508d00">
+				<reportElement style="estilo_cores_alternadas" x="215" y="0" width="356" height="30" uuid="0a6f8c3d-e7df-405d-bdba-00f83d508d00">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6bfa77e2-7257-4674-9c6b-5fa64db0bb2d"/>
 				</reportElement>
 				<box>
@@ -270,55 +234,7 @@ FROM jaspercurso.empresas,
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{logradouro}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="estilo_cores_alternadas" x="310" y="0" width="54" height="30" uuid="1c8f26b6-714d-4655-a567-3188de5ca58d">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="721b67c6-3ca6-4c35-b2ca-7bf7ff6f7de7"/>
-				</reportElement>
-				<box>
-					<pen lineColor="#D6D6D6"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="estilo_cores_alternadas" x="364" y="0" width="76" height="30" uuid="03f38df6-3583-4848-a4ac-0865d206f93c">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ecfcba8e-29b1-4453-9450-b0e599c0565c"/>
-				</reportElement>
-				<box>
-					<pen lineColor="#D6D6D6"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{bairro}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="estilo_cores_alternadas" x="440" y="0" width="90" height="30" uuid="89442481-1f17-47f7-bc96-e5eba8719701">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dbbe3e98-97f2-4f36-8a59-ae09dfd29a9a"/>
-				</reportElement>
-				<box>
-					<pen lineColor="#D6D6D6"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="estilo_cores_alternadas" x="530" y="0" width="42" height="30" uuid="a716eff3-c142-43e2-860c-63800dc9975b">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2216c2a-1451-402b-a177-268819469027"/>
-				</reportElement>
-				<box>
-					<pen lineColor="#D6D6D6"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{uf}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{logradouro} + ", " + $F{numero} + " - " + $F{bairro} + ", " + $F{cidade} + "-" + $F{uf}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
