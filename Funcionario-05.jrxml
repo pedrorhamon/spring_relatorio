@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="funcionario-05" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="edc2fc90-a3ed-4625-97d7-252282bd0160">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="funcionario-02" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="edc2fc90-a3ed-4625-97d7-252282bd0160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL JASPERRELATORIO Adapter "/>
 	<property name="com.jaspersoft.studio.report.description" value=""/>
@@ -73,24 +73,6 @@ from funcionarios f, empresas e]]>
 		<property name="com.jaspersoft.studio.field.tree.path" value="empresas"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<variable name="SALARIO_TOTAL_PAGE" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
-		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
-	</variable>
-	<variable name="SALARIO_MEDIA_PAGE" class="java.math.BigDecimal" resetType="Column" calculation="Average">
-		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
-	</variable>
-	<variable name="SALARIO_TOTAL_GERAL" class="java.math.BigDecimal" calculation="Sum">
-		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
-	</variable>
-	<variable name="SALARIO_MEDIA_GERAL" class="java.math.BigDecimal" calculation="Average">
-		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
-	</variable>
-	<variable name="SALARIO_MAIOR" class="java.math.BigDecimal" resetType="Page" calculation="Highest">
-		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
-	</variable>
-	<variable name="SALARIO_MENOR" class="java.math.BigDecimal" resetType="Page" calculation="Lowest">
-		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
-	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -245,130 +227,12 @@ from funcionarios f, empresas e]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="30" splitType="Stretch">
-			<staticText>
-				<reportElement x="180" y="0" width="100" height="30" uuid="84b690f7-a842-4d71-a180-aa2222380f7c"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Total:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="380" y="0" width="100" height="30" uuid="1ada942c-7619-466b-b160-c4f4816fc729"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Média:]]></text>
-			</staticText>
-			<textField pattern="¤ #,##0.00;¤ -#,##0.00">
-				<reportElement x="280" y="0" width="100" height="30" uuid="1ec77844-1c47-45c6-a3ff-1380d4b5db50"/>
-				<textElement verticalAlignment="Middle">
-					<font size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{SALARIO_TOTAL_PAGE}]]></textFieldExpression>
-			</textField>
-			<textField pattern="¤ #,##0.00;¤ -#,##0.00">
-				<reportElement x="480" y="0" width="92" height="30" uuid="55a4ceed-937d-469f-82bc-1ec4cf4f226a"/>
-				<textElement verticalAlignment="Middle">
-					<font size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{SALARIO_MEDIA_PAGE}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="30" splitType="Stretch">
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="111" y="0" width="100" height="30" uuid="398ea338-1d0a-4bcd-bb0d-781dba9bb170"/>
-				<textElement verticalAlignment="Middle">
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="0" y="0" width="110" height="30" uuid="3904eca1-cfb0-473d-b191-d383909a5b7d"/>
-				<textElement verticalAlignment="Middle">
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[Relatório criando em]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="380" y="0" width="100" height="30" uuid="44603a60-6819-420d-bec2-f955f4686d7c"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="480" y="0" width="92" height="30" uuid="53909fe7-3d0e-4ad3-bc74-7d329c118b8c"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="54" splitType="Stretch"/>
 	</pageFooter>
-	<lastPageFooter>
-		<band height="30">
-			<printWhenExpression><![CDATA[$V{SALARIO_MAIOR} != null && $V{SALARIO_MENOR} != null]]></printWhenExpression>
-			<rectangle>
-				<reportElement mode="Opaque" x="0" y="0" width="572" height="30" forecolor="#FFFF99" backcolor="#FFFF99" uuid="02700a9c-b4be-4ba3-9d74-19ef11b59a5e"/>
-			</rectangle>
-			<textField isBlankWhenNull="true">
-				<reportElement x="280" y="0" width="100" height="30" uuid="1df48f57-f470-4a99-906a-a7acb1d725cf"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$V{SALARIO_MAIOR}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="180" y="0" width="100" height="30" uuid="ccbb8613-f178-43f7-b375-1ab0db7d86b4"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Maior Salário:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="380" y="0" width="100" height="30" uuid="a0ab5165-0803-41d6-a758-fe32adfa4096"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Menor Salário:]]></text>
-			</staticText>
-			<textField isBlankWhenNull="true">
-				<reportElement x="480" y="0" width="92" height="30" uuid="35b13e38-051a-41da-afef-81dd461a4743"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$V{SALARIO_MENOR}]]></textFieldExpression>
-			</textField>
-		</band>
-	</lastPageFooter>
 	<summary>
-		<band height="30" splitType="Stretch">
-			<rectangle>
-				<reportElement mode="Opaque" x="0" y="0" width="572" height="30" forecolor="#E3E3E3" backcolor="#E3E3E3" uuid="aff41ff4-528b-406c-a1f5-6409be0cf23a"/>
-			</rectangle>
-			<staticText>
-				<reportElement x="180" y="0" width="100" height="30" uuid="d334beb8-897e-4462-8290-58efff7c41d5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Total:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="380" y="0" width="100" height="30" uuid="4f970f43-cc28-4205-aea8-d8fe55d90bf4"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Média:]]></text>
-			</staticText>
-			<textField pattern="¤ #,##0.00;¤ -#,##0.00">
-				<reportElement x="280" y="0" width="100" height="30" uuid="fd0b2af1-ea70-4d63-956f-14f063adcabf"/>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{SALARIO_TOTAL_GERAL}]]></textFieldExpression>
-			</textField>
-			<textField pattern="¤ #,##0.00;¤ -#,##0.00">
-				<reportElement x="480" y="0" width="92" height="30" uuid="2e261295-f017-418e-b6d1-5108e1b276cb"/>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{SALARIO_MEDIA_GERAL}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>
