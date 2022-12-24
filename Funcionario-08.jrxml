@@ -97,113 +97,39 @@ FROM jaspercurso.empresas,
 				</graphicElement>
 			</rectangle>
 			<textField>
-				<reportElement x="0" y="0" width="143" height="30" uuid="4630efd6-7238-4045-b46a-92a5420be017"/>
-				<box padding="5"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{razao_social}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="143" y="0" width="143" height="30" uuid="caed5ac6-b75b-41a2-aabe-45acad128ae5"/>
-				<textElement verticalAlignment="Middle" markup="html">
+				<reportElement x="0" y="0" width="572" height="30" uuid="caed5ac6-b75b-41a2-aabe-45acad128ae5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
 					<font isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["<b>CNPJ:</b> " + $F{cnpj}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="286" y="0" width="143" height="30" uuid="0036bcb8-79e6-4585-a2d4-ad51583de714"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["(" + $F{telefone}.substring( 0, 2) + ")" + " " + $F{telefone}.substring( 2, 6 ) + "-" + $F{telefone}.substring( 6, 10 )]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="429" y="0" width="143" height="30" uuid="42c64d71-f2dc-4d66-b043-107a78db0df2"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
-			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="30" splitType="Stretch">
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="95" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="57b63a57-f93f-4c54-b33f-b1cc6cd74f8c">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="33c3d068-106d-4116-a2cd-8384a98ed5f6"/>
-				</reportElement>
-				<box padding="5"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Código]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="95" y="0" width="121" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="c0610f23-aed0-40ba-8ad8-6c1bb510662f">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a7542f19-3ffd-4b89-a566-172ad0e6b81e"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Nome]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="216" y="0" width="356" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="0a48a436-595e-4536-8a72-8c2a277e5801">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6bfa77e2-7257-4674-9c6b-5fa64db0bb2d"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Endereço Residencial]]></text>
-			</staticText>
-		</band>
+		<band height="30" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="30" splitType="Stretch">
-			<textField>
-				<reportElement style="estilo_cores_alternadas" x="0" y="0" width="95" height="30" uuid="17d10b51-242f-4893-b423-2a0ec07b2198">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="33c3d068-106d-4116-a2cd-8384a98ed5f6"/>
-				</reportElement>
-				<box padding="5">
-					<pen lineColor="#D6D6D6"/>
-					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#D6D6D6"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D6D6D6"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{id_funcionario}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="estilo_cores_alternadas" x="95" y="0" width="121" height="30" uuid="d493de01-5489-45dd-acc2-2e9b59966f3f">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a7542f19-3ffd-4b89-a566-172ad0e6b81e"/>
-				</reportElement>
-				<box>
-					<pen lineColor="#D6D6D6"/>
-					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#D6D6D6"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D6D6D6"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="11"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="estilo_cores_alternadas" x="216" y="0" width="356" height="30" uuid="fb4d0868-d57e-48e7-8aed-64e4a86b12f1"/>
-				<box>
-					<pen lineColor="#E6E6E6"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="30" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="63" splitType="Stretch"/>
+		<band height="30" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="0" width="572" height="30" forecolor="#E3E3E3" backcolor="#E3E3E3" uuid="c84d4c4d-44ff-4ecb-85c0-dc11dcb68ef0"/>
+			</rectangle>
+			<textField evaluationTime="Report">
+				<reportElement x="282" y="0" width="92" height="30" uuid="9c09aeac-e639-4cab-ac4a-d88251d25770"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="0" width="100" height="30" uuid="23d6a02d-9597-43c2-860a-972769e728a1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>
