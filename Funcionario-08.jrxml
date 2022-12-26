@@ -176,10 +176,10 @@ ORDER BY jaspercurso.funcionarios.nome ASC]]>
 				<reportElement mode="Opaque" x="359" y="0" width="51" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="5241803f-5024-4d76-b5c8-0aae8dfc4e32">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="249aab73-5c3f-4b4b-843f-2cdd7e5e6fe8"/>
 				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[nivel]]></text>
+				<text><![CDATA[Nível]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -224,7 +224,11 @@ ORDER BY jaspercurso.funcionarios.nome ASC]]>
 				<reportElement style="estilo_cores_alternadas" x="360" y="0" width="51" height="30" uuid="e91fb708-59fd-41ce-a619-4a303a7e2588">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="249aab73-5c3f-4b4b-843f-2cdd7e5e6fe8"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{nivel}]]></textFieldExpression>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nivel}.equals("TREINAMENTO") ? "TR" :
+$F{nivel}.equals("JUNIOR") ? "JR" :
+$F{nivel}.equals("SENIOR") ? "SR" : "PL"
+]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
