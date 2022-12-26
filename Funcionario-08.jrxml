@@ -162,7 +162,7 @@ FROM jaspercurso.empresas,
 				<text><![CDATA[Bônus]]></text>
 			</staticText>
 			<staticText>
-				<reportElement isPrintRepeatedValues="false" mode="Opaque" x="489" y="0" width="82" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="bc3d3f39-455f-448b-930f-3e24ccf6bfc0"/>
+				<reportElement mode="Opaque" x="489" y="0" width="82" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="bc3d3f39-455f-448b-930f-3e24ccf6bfc0"/>
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
