@@ -202,42 +202,42 @@ ORDER BY jaspercurso.funcionarios.nome ASC]]>
 	<detail>
 		<band height="30" splitType="Stretch">
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="0" y="0" width="38" height="30" uuid="86840258-bc50-4020-aa04-676927f57059">
+				<reportElement style="estilo_cores_alternadas" stretchType="ElementGroupHeight" x="0" y="0" width="38" height="30" uuid="86840258-bc50-4020-aa04-676927f57059">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="efebc18c-c76e-43f6-9c8b-2b11f3aebc63"/>
 				</reportElement>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{id_funcionario}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="38" y="0" width="121" height="30" uuid="c592700a-5e56-4599-bf66-a137782747fb">
+				<reportElement style="estilo_cores_alternadas" stretchType="ElementGroupHeight" x="38" y="0" width="121" height="30" uuid="c592700a-5e56-4599-bf66-a137782747fb">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb4ff6c2-72f2-4a09-92ed-5f323e9f8799"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField pattern="¤ #,##0.00#;¤ -#,##0.00#">
-				<reportElement style="estilo_cores_alternadas" x="414" y="0" width="50" height="30" uuid="fb303f4d-1b89-46be-8da9-bfa4fb8086a1">
+				<reportElement style="estilo_cores_alternadas" stretchType="ElementGroupHeight" x="414" y="0" width="50" height="30" uuid="fb303f4d-1b89-46be-8da9-bfa4fb8086a1">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1abd13f2-b56b-4752-89bb-043ea4742599"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{salario}]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight">
-				<reportElement style="estilo_cores_alternadas" x="210" y="0" width="154" height="30" uuid="6ace9931-dfbc-4b7d-b780-53d0dc71b828">
+				<reportElement style="estilo_cores_alternadas" stretchType="ElementGroupHeight" x="210" y="0" width="154" height="30" uuid="6ace9931-dfbc-4b7d-b780-53d0dc71b828">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eab66dd7-6fe0-4f1f-8380-ba012537a5d7"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.##%">
-				<reportElement style="estilo_cores_alternadas" x="464" y="0" width="40" height="30" uuid="7cbe59f1-512a-4fbd-8680-d2efcf453410">
+				<reportElement style="estilo_cores_alternadas" stretchType="ElementGroupHeight" x="464" y="0" width="40" height="30" uuid="7cbe59f1-512a-4fbd-8680-d2efcf453410">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23f67890-abd9-499e-ab9d-b2a621194d42"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{bonus}]]></textFieldExpression>
 			</textField>
 			<textField pattern="¤ #,##0.00;¤ -#,##0.00">
-				<reportElement style="estilo_cores_alternadas" x="503" y="0" width="70" height="30" uuid="59da0efb-aecf-414c-a0f6-b0d0323d48f9"/>
+				<reportElement style="estilo_cores_alternadas" stretchType="ElementGroupHeight" x="503" y="0" width="70" height="30" uuid="59da0efb-aecf-414c-a0f6-b0d0323d48f9"/>
 				<textFieldExpression><![CDATA[$F{salario}.add( $F{salario}.multiply($F{bonus} ) )]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="364" y="0" width="51" height="30" uuid="e91fb708-59fd-41ce-a619-4a303a7e2588">
+				<reportElement style="estilo_cores_alternadas" stretchType="ElementGroupHeight" x="364" y="0" width="51" height="30" uuid="e91fb708-59fd-41ce-a619-4a303a7e2588">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="249aab73-5c3f-4b4b-843f-2cdd7e5e6fe8"/>
 				</reportElement>
 				<textElement textAlignment="Center"/>
@@ -247,7 +247,7 @@ $F{nivel}.equals("SENIOR") ? "SR" : "PL"
 ]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="159" y="0" width="51" height="30" uuid="9e3afb21-8124-4e07-930c-8c34ad0cd302">
+				<reportElement style="estilo_cores_alternadas" stretchType="ElementGroupHeight" x="159" y="0" width="51" height="30" uuid="9e3afb21-8124-4e07-930c-8c34ad0cd302">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="59527cbb-772f-4a66-a41c-69b6dd4cc2fb"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[java.time.Period.between($F{data_nascimento}.toLocalDate(), java.time.LocalDate.now()).getYears()]]></textFieldExpression>
