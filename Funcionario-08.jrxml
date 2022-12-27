@@ -137,7 +137,7 @@ ORDER BY jaspercurso.funcionarios.nome ASC]]>
 				<text><![CDATA[Código]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="39" y="0" width="120" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="4fe0b2b8-9480-4412-aa30-42275a3ea552">
+				<reportElement mode="Opaque" x="38" y="0" width="121" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="4fe0b2b8-9480-4412-aa30-42275a3ea552">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb4ff6c2-72f2-4a09-92ed-5f323e9f8799"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
@@ -200,7 +200,7 @@ ORDER BY jaspercurso.funcionarios.nome ASC]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="48" splitType="Stretch">
+		<band height="30" splitType="Stretch">
 			<textField>
 				<reportElement style="estilo_cores_alternadas" x="0" y="0" width="38" height="30" uuid="86840258-bc50-4020-aa04-676927f57059">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="efebc18c-c76e-43f6-9c8b-2b11f3aebc63"/>
@@ -209,7 +209,7 @@ ORDER BY jaspercurso.funcionarios.nome ASC]]>
 				<textFieldExpression><![CDATA[$F{id_funcionario}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="39" y="0" width="120" height="30" uuid="c592700a-5e56-4599-bf66-a137782747fb">
+				<reportElement style="estilo_cores_alternadas" x="38" y="0" width="121" height="30" uuid="c592700a-5e56-4599-bf66-a137782747fb">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb4ff6c2-72f2-4a09-92ed-5f323e9f8799"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
@@ -220,7 +220,7 @@ ORDER BY jaspercurso.funcionarios.nome ASC]]>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{salario}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField textAdjust="StretchHeight">
 				<reportElement style="estilo_cores_alternadas" x="210" y="0" width="154" height="30" uuid="6ace9931-dfbc-4b7d-b780-53d0dc71b828">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eab66dd7-6fe0-4f1f-8380-ba012537a5d7"/>
 				</reportElement>
@@ -250,7 +250,7 @@ $F{nivel}.equals("SENIOR") ? "SR" : "PL"
 				<reportElement style="estilo_cores_alternadas" x="159" y="0" width="51" height="30" uuid="9e3afb21-8124-4e07-930c-8c34ad0cd302">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="59527cbb-772f-4a66-a41c-69b6dd4cc2fb"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[java.time.Period.between($F{data_nascimento}, $F{data_nascimento}.toInstant()).getYears()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[java.time.Period.between($F{data_nascimento}.toLocalDate(), java.time.LocalDate.now()).getYears()]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
