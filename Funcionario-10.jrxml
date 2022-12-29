@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="funcionario-10" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="edc2fc90-a3ed-4625-97d7-252282bd0160">
-	<property name="com.jaspersoft.studio.data.sql.tables">
-		<![CDATA[amFzcGVyY3Vyc28uZnVuY2lvbmFyaW9zICwzMTQsMjAsNWU5YTE0ZjEtNmRmNS00NWNlLTgzNGIt
-YWY5NzU5MzQwMjljO2phc3BlcmN1cnNvLnRlbGVmb25lcyAsNDc1LDk5LDAxMTM3ODMxLThlY2Ut
-NGEwYi04YjA5LTZiY2QwOTA0NDdiZDtqYXNwZXJjdXJzby5lbmRlcmVjb3MgLDE2NSw2MCw0NGNm
-ZWFlOC1mOTQ5LTQ1ZTItODcxNC02YTQ4YTc3M2E5N2E7amFzcGVyY3Vyc28uZW1wcmVzYXMgLDIw
-LDg2LDVmNzVjZDJmLWRiNzctNGM0Yi1iOTc5LTc2ZTAxMTYwMzNlODs=]]>
-	</property>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL JASPERRELATORIO Adapter "/>
 	<property name="com.jaspersoft.studio.report.description" value=""/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -33,15 +27,12 @@ LDg2LDVmNzVjZDJmLWRiNzctNGM0Yi1iOTc5LTc2ZTAxMTYwMzNlODs=]]>
 	jaspercurso.funcionarios.id_funcionario,
 	jaspercurso.funcionarios.nome,
 	concat( jaspercurso.enderecos.logradouro,', ',jaspercurso.enderecos.numero,' - ',jaspercurso.enderecos.bairro,', ',jaspercurso.enderecos.cidade,'/',jaspercurso.enderecos.uf) 
-	AS endereco,
-	jaspercurso.telefones.numero as numero_fone,
-	jaspercurso.telefones.tipo_fone
+	AS endereco
 FROM jaspercurso.empresas,
 	jaspercurso.funcionarios
 	INNER JOIN jaspercurso.enderecos ON 
 	 jaspercurso.funcionarios.id_endereco = jaspercurso.enderecos.id_endereco 
-	INNER JOIN jaspercurso.telefones ON 
-	 jaspercurso.funcionarios.id_funcionario = jaspercurso.telefones.id_funcionario]]>
+	]]>
 	</queryString>
 	<field name="razao_social" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="razao_social"/>
@@ -82,17 +73,6 @@ FROM jaspercurso.empresas,
 	<field name="endereco" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="endereco"/>
 		<property name="com.jaspersoft.studio.field.label" value="endereco"/>
-	</field>
-	<field name="numero_fone" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="numero"/>
-		<property name="com.jaspersoft.studio.field.label" value="numero_fone"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="telefones"/>
-	</field>
-	<field name="tipo_fone" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="tipo_fone"/>
-		<property name="com.jaspersoft.studio.field.label" value="tipo_fone"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="telefones"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -169,18 +149,7 @@ FROM jaspercurso.empresas,
 				<text><![CDATA[Endereço Residencial]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="400" y="0" width="70" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="51e66eae-11f5-4dc2-b07d-91f37bfe144b">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="940f01c3-c9dc-4067-ad81-b9ae7586f14b"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Tipo fone]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="470" y="0" width="100" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="bb7708be-1904-40a9-a453-cd0f0ae7467f">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5aded03e-2e6f-4bcb-9378-4e8c818a88bb"/>
-				</reportElement>
+				<reportElement mode="Opaque" x="400" y="0" width="172" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="55d23570-d488-4c10-8d34-f5bb2edc024c"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
@@ -189,16 +158,16 @@ FROM jaspercurso.empresas,
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="43" splitType="Stretch">
+		<band height="30" splitType="Stretch">
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="0" y="0" width="95" height="30" uuid="17d10b51-242f-4893-b423-2a0ec07b2198">
+				<reportElement style="estilo_cores_alternadas" stretchType="ContainerHeight" x="0" y="0" width="95" height="30" uuid="17d10b51-242f-4893-b423-2a0ec07b2198">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="33c3d068-106d-4116-a2cd-8384a98ed5f6"/>
 				</reportElement>
 				<box padding="5">
 					<pen lineColor="#D6D6D6"/>
-					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#D6D6D6"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D6D6D6"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement verticalAlignment="Middle">
@@ -207,14 +176,14 @@ FROM jaspercurso.empresas,
 				<textFieldExpression><![CDATA[$F{id_funcionario}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="95" y="0" width="121" height="30" uuid="d493de01-5489-45dd-acc2-2e9b59966f3f">
+				<reportElement style="estilo_cores_alternadas" stretchType="ContainerHeight" x="95" y="0" width="121" height="30" uuid="d493de01-5489-45dd-acc2-2e9b59966f3f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a7542f19-3ffd-4b89-a566-172ad0e6b81e"/>
 				</reportElement>
 				<box>
 					<pen lineColor="#D6D6D6"/>
-					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#D6D6D6"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D6D6D6"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement verticalAlignment="Middle">
@@ -223,27 +192,27 @@ FROM jaspercurso.empresas,
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="216" y="0" width="184" height="30" uuid="fb4d0868-d57e-48e7-8aed-64e4a86b12f1"/>
+				<reportElement style="estilo_cores_alternadas" stretchType="ContainerHeight" x="216" y="0" width="184" height="30" uuid="fb4d0868-d57e-48e7-8aed-64e4a86b12f1"/>
 				<box>
 					<pen lineColor="#E6E6E6"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="400" y="0" width="70" height="30" uuid="e2bf3cd1-4772-400d-be5b-c0446bf1c766">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="940f01c3-c9dc-4067-ad81-b9ae7586f14b"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$F{tipo_fone}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="470" y="0" width="100" height="30" uuid="9e239586-ce6f-4ff0-aaab-07bd66668889">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5aded03e-2e6f-4bcb-9378-4e8c818a88bb"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$F{numero_fone}]]></textFieldExpression>
-			</textField>
+			<subreport>
+				<reportElement style="estilo_cores_alternadas" stretchType="ContainerHeight" x="400" y="0" width="172" height="30" uuid="92f218a4-b298-45f9-a3fc-5ef16c5c1ea5"/>
+				<subreportParameter name="ID_FUNCIONARIO">
+					<subreportParameterExpression><![CDATA[$F{id_funcionario}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["Funcionarios-10-subfone.jasper"]]></subreportExpression>
+			</subreport>
 		</band>
 	</detail>
 	<columnFooter>
