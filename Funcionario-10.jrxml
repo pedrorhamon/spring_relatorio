@@ -2,10 +2,11 @@
 <!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="funcionario-10" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="edc2fc90-a3ed-4625-97d7-252282bd0160">
 	<property name="com.jaspersoft.studio.data.sql.tables">
-		<![CDATA[amFzcGVyY3Vyc28uZW1wcmVzYXMgQVMgLDQyNSw1MiwxZWJiMzA5MS03Zjk5LTQ5ZjEtOGUzNS0y
-MWUyN2VkYmI2ODM7amFzcGVyY3Vyc28uZnVuY2lvbmFyaW9zIEFTICw1Nyw2MCwyMzMxYmEwMC0w
-Nzc4LTQxMmEtODljMy0zNmQ4MWIzZTg0YTU7amFzcGVyY3Vyc28uZW5kZXJlY29zIEFTICwyNDMs
-NTgsZjBjNDAwMzEtOGNmMS00MmZhLTllNzItMTExZTFhMWM2MzBlOw==]]>
+		<![CDATA[amFzcGVyY3Vyc28uZnVuY2lvbmFyaW9zICwzMTQsMjAsNWU5YTE0ZjEtNmRmNS00NWNlLTgzNGIt
+YWY5NzU5MzQwMjljO2phc3BlcmN1cnNvLnRlbGVmb25lcyAsNDc1LDk5LDAxMTM3ODMxLThlY2Ut
+NGEwYi04YjA5LTZiY2QwOTA0NDdiZDtqYXNwZXJjdXJzby5lbmRlcmVjb3MgLDE2NSw2MCw0NGNm
+ZWFlOC1mOTQ5LTQ1ZTItODcxNC02YTQ4YTc3M2E5N2E7amFzcGVyY3Vyc28uZW1wcmVzYXMgLDIw
+LDg2LDVmNzVjZDJmLWRiNzctNGM0Yi1iOTc5LTc2ZTAxMTYwMzNlODs=]]>
 	</property>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL JASPERRELATORIO Adapter "/>
 	<property name="com.jaspersoft.studio.report.description" value=""/>
@@ -31,16 +32,16 @@ NTgsZjBjNDAwMzEtOGNmMS00MmZhLTllNzItMTExZTFhMWM2MzBlOw==]]>
 	jaspercurso.empresas.email,
 	jaspercurso.funcionarios.id_funcionario,
 	jaspercurso.funcionarios.nome,
-	jaspercurso.enderecos.logradouro,
-	jaspercurso.enderecos.numero,
-	jaspercurso.enderecos.bairro,
-	jaspercurso.enderecos.cidade,
-	jaspercurso.enderecos.uf,
-	jaspercurso.funcionarios.id_endereco
+	concat( jaspercurso.enderecos.logradouro,', ',jaspercurso.enderecos.numero,' - ',jaspercurso.enderecos.bairro,', ',jaspercurso.enderecos.cidade,'/',jaspercurso.enderecos.uf) 
+	AS endereco,
+	jaspercurso.telefones.numero as numero_fone,
+	jaspercurso.telefones.tipo_fone
 FROM jaspercurso.empresas,
 	jaspercurso.funcionarios
 	INNER JOIN jaspercurso.enderecos ON 
-	 jaspercurso.funcionarios.id_endereco = jaspercurso.enderecos.id_endereco]]>
+	 jaspercurso.funcionarios.id_endereco = jaspercurso.enderecos.id_endereco 
+	INNER JOIN jaspercurso.telefones ON 
+	 jaspercurso.funcionarios.id_funcionario = jaspercurso.telefones.id_funcionario]]>
 	</queryString>
 	<field name="razao_social" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="razao_social"/>
@@ -78,40 +79,19 @@ FROM jaspercurso.empresas,
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="logradouro" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="logradouro"/>
-		<property name="com.jaspersoft.studio.field.label" value="logradouro"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="enderecos"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
+	<field name="endereco" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="endereco"/>
+		<property name="com.jaspersoft.studio.field.label" value="endereco"/>
 	</field>
-	<field name="numero" class="java.lang.Integer">
+	<field name="numero_fone" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="numero"/>
-		<property name="com.jaspersoft.studio.field.label" value="numero"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="enderecos"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<property name="com.jaspersoft.studio.field.label" value="numero_fone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="telefones"/>
 	</field>
-	<field name="bairro" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="bairro"/>
-		<property name="com.jaspersoft.studio.field.label" value="bairro"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="enderecos"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="cidade" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="cidade"/>
-		<property name="com.jaspersoft.studio.field.label" value="cidade"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="enderecos"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="uf" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="uf"/>
-		<property name="com.jaspersoft.studio.field.label" value="uf"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="enderecos"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="id_endereco" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.name" value="id_endereco"/>
-		<property name="com.jaspersoft.studio.field.label" value="id_endereco"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+	<field name="tipo_fone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tipo_fone"/>
+		<property name="com.jaspersoft.studio.field.label" value="tipo_fone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="telefones"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>
@@ -180,54 +160,36 @@ FROM jaspercurso.empresas,
 				<text><![CDATA[Nome]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="216" y="0" width="94" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="0a48a436-595e-4536-8a72-8c2a277e5801">
+				<reportElement mode="Opaque" x="216" y="0" width="184" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="0a48a436-595e-4536-8a72-8c2a277e5801">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6bfa77e2-7257-4674-9c6b-5fa64db0bb2d"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[logradouro]]></text>
+				<text><![CDATA[Endereço Residencial]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="310" y="0" width="54" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="37217882-eedb-4017-ab98-5133d035b4ce">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="721b67c6-3ca6-4c35-b2ca-7bf7ff6f7de7"/>
+				<reportElement mode="Opaque" x="400" y="0" width="70" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="51e66eae-11f5-4dc2-b07d-91f37bfe144b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="940f01c3-c9dc-4067-ad81-b9ae7586f14b"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nº]]></text>
+				<text><![CDATA[Tipo fone]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="364" y="0" width="76" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="e329bfcc-35e8-4632-9283-2456581fdbf8">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ecfcba8e-29b1-4453-9450-b0e599c0565c"/>
+				<reportElement mode="Opaque" x="470" y="0" width="100" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="bb7708be-1904-40a9-a453-cd0f0ae7467f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5aded03e-2e6f-4bcb-9378-4e8c818a88bb"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Bairro]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="440" y="0" width="90" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="4a3b17bf-b38e-4767-b83f-af80287cbb50">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dbbe3e98-97f2-4f36-8a59-ae09dfd29a9a"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Cidade]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="530" y="0" width="42" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="d00c844c-875a-48d4-a0e1-21cbcb09ef87">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2216c2a-1451-402b-a177-268819469027"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[UF]]></text>
+				<text><![CDATA[Telefone]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="30" splitType="Stretch">
+		<band height="43" splitType="Stretch">
 			<textField>
 				<reportElement style="estilo_cores_alternadas" x="0" y="0" width="95" height="30" uuid="17d10b51-242f-4893-b423-2a0ec07b2198">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="33c3d068-106d-4116-a2cd-8384a98ed5f6"/>
@@ -261,64 +223,26 @@ FROM jaspercurso.empresas,
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="215" y="0" width="94" height="30" uuid="0a6f8c3d-e7df-405d-bdba-00f83d508d00">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6bfa77e2-7257-4674-9c6b-5fa64db0bb2d"/>
-				</reportElement>
+				<reportElement style="estilo_cores_alternadas" x="216" y="0" width="184" height="30" uuid="fb4d0868-d57e-48e7-8aed-64e4a86b12f1"/>
 				<box>
-					<pen lineColor="#D6D6D6"/>
+					<pen lineColor="#E6E6E6"/>
 				</box>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{logradouro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="310" y="0" width="54" height="30" uuid="1c8f26b6-714d-4655-a567-3188de5ca58d">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="721b67c6-3ca6-4c35-b2ca-7bf7ff6f7de7"/>
+				<reportElement x="400" y="0" width="70" height="30" uuid="e2bf3cd1-4772-400d-be5b-c0446bf1c766">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="940f01c3-c9dc-4067-ad81-b9ae7586f14b"/>
 				</reportElement>
-				<box>
-					<pen lineColor="#D6D6D6"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tipo_fone}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="estilo_cores_alternadas" x="364" y="0" width="76" height="30" uuid="03f38df6-3583-4848-a4ac-0865d206f93c">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ecfcba8e-29b1-4453-9450-b0e599c0565c"/>
+				<reportElement x="470" y="0" width="100" height="30" uuid="9e239586-ce6f-4ff0-aaab-07bd66668889">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5aded03e-2e6f-4bcb-9378-4e8c818a88bb"/>
 				</reportElement>
-				<box>
-					<pen lineColor="#D6D6D6"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{bairro}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="estilo_cores_alternadas" x="440" y="0" width="90" height="30" uuid="89442481-1f17-47f7-bc96-e5eba8719701">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dbbe3e98-97f2-4f36-8a59-ae09dfd29a9a"/>
-				</reportElement>
-				<box>
-					<pen lineColor="#D6D6D6"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="estilo_cores_alternadas" x="530" y="0" width="42" height="30" uuid="a716eff3-c142-43e2-860c-63800dc9975b">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2216c2a-1451-402b-a177-268819469027"/>
-				</reportElement>
-				<box>
-					<pen lineColor="#D6D6D6"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{uf}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{numero_fone}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -326,7 +250,7 @@ FROM jaspercurso.empresas,
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="63" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>
