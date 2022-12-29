@@ -160,13 +160,13 @@ FROM jaspercurso.empresas,
 				<text><![CDATA[Telefone]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="estilo_cores_alternadas" mode="Opaque" x="388" y="-1" width="92" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="6ad6ec9b-8497-4f92-aad4-058648977ba8">
+				<reportElement style="estilo_cores_alternadas" mode="Opaque" x="388" y="0" width="92" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="6ad6ec9b-8497-4f92-aad4-058648977ba8">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f60a7f5-a570-4c1f-b647-00431aa81b5e"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[data_nascimento]]></text>
+				<text><![CDATA[Idade]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="estilo_cores_alternadas" mode="Opaque" x="480" y="0" width="92" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="5b148a67-ac1d-4043-817f-60e47a74b6c4">
@@ -175,7 +175,7 @@ FROM jaspercurso.empresas,
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[salario]]></text>
+				<text><![CDATA[Salário]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
