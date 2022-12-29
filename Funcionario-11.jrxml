@@ -244,13 +244,13 @@ FROM jaspercurso.empresas,
 				</textElement>
 				<text><![CDATA[Endereço Residencial]]></text>
 			</staticText>
-			<textField>
+			<textField pattern="dd/MM/yyyy">
 				<reportElement style="estilo_cores_alternadas" x="387" y="0" width="92" height="30" uuid="f91cfff7-75b1-4cff-8f63-e6a60f051381">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f60a7f5-a570-4c1f-b647-00431aa81b5e"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{data_nascimento}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="¤ #,##0.##;¤ -#,##0.##">
 				<reportElement style="estilo_cores_alternadas" x="480" y="0" width="92" height="30" uuid="ed69f204-5260-4563-b881-1d07685fbbe2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8733e43a-b662-4f65-939c-ad7acb39bf34"/>
 				</reportElement>
