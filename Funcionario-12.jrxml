@@ -91,6 +91,12 @@ ORDER BY  jaspercurso.niveis.nivel ASC,  jaspercurso.funcionarios.nome ASC]]>
 		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<variable name="TOTAL_SALARIO_GROUP" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{salario}]]></variableExpression>
+	</variable>
+	<variable name="TOTAL_REMUNERACAO_GROUP" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[$F{salario}.add( $F{salario}.multiply($F{bonus} ) )]]></variableExpression>
+	</variable>
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{nivel}]]></groupExpression>
 		<groupHeader>
@@ -105,10 +111,10 @@ ORDER BY  jaspercurso.niveis.nivel ASC,  jaspercurso.funcionarios.nome ASC]]>
 					<text><![CDATA[Nível]]></text>
 				</staticText>
 				<textField>
-					<reportElement style="estilo_cores_alternadas" x="80" y="0" width="102" height="30" uuid="e91fb708-59fd-41ce-a619-4a303a7e2588">
+					<reportElement style="estilo_cores_alternadas" x="80" y="0" width="492" height="30" uuid="e91fb708-59fd-41ce-a619-4a303a7e2588">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="249aab73-5c3f-4b4b-843f-2cdd7e5e6fe8"/>
 					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
 					<textFieldExpression><![CDATA[$F{nivel}.equals("TREINAMENTO") ? "TREINAMENTO (TR)" :
 $F{nivel}.equals("JUNIOR") ? "JUNIOR (JR)" :
 $F{nivel}.equals("SENIOR") ? "SENIOR (SR)" : "PLENO (PL)"]]></textFieldExpression>
@@ -116,7 +122,12 @@ $F{nivel}.equals("SENIOR") ? "SENIOR (SR)" : "PLENO (PL)"]]></textFieldExpressio
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="50"/>
+			<band height="57">
+				<textField>
+					<reportElement x="413" y="0" width="50" height="30" uuid="a1f80376-6995-44bc-9a58-87324ecf004c"/>
+					<textFieldExpression><![CDATA[$V{TOTAL_SALARIO_GROUP}]]></textFieldExpression>
+				</textField>
+			</band>
 		</groupFooter>
 	</group>
 	<background>
