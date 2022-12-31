@@ -243,8 +243,7 @@ ORDER BY jaspercurso.funcionarios.nome ASC]]>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{nivel}.equals("TREINAMENTO") ? "TR" :
 $F{nivel}.equals("JUNIOR") ? "JR" :
-$F{nivel}.equals("SENIOR") ? "SR" : "PL"
-]]></textFieldExpression>
+$F{nivel}.equals("SENIOR") ? "SR" : "PL"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="estilo_cores_alternadas" x="159" y="0" width="51" height="30" uuid="9e3afb21-8124-4e07-930c-8c34ad0cd302">
