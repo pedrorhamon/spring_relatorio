@@ -97,6 +97,8 @@ ORDER BY  jaspercurso.niveis.nivel ASC,  jaspercurso.funcionarios.nome ASC]]>
 	<variable name="TOTAL_REMUNERACAO_GROUP" class="java.math.BigDecimal">
 		<variableExpression><![CDATA[$F{salario}.add( $F{salario}.multiply($F{bonus} ) )]]></variableExpression>
 	</variable>
+	<variable name="TOTAL_SALARIO_GERAL" class="java.math.BigDecimal"/>
+	<variable name="TOTAL_REMUNERACAO_GERAL" class="java.math.BigDecimal"/>
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{nivel}]]></groupExpression>
 		<groupHeader>
@@ -122,7 +124,7 @@ $F{nivel}.equals("SENIOR") ? "SENIOR (SR)" : "PLENO (PL)"]]></textFieldExpressio
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="57">
+			<band height="30">
 				<textField>
 					<reportElement x="412" y="0" width="51" height="30" uuid="a1f80376-6995-44bc-9a58-87324ecf004c"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle"/>
@@ -302,6 +304,22 @@ $F{nivel}.equals("SENIOR") ? "SENIOR (SR)" : "PLENO (PL)"]]></textFieldExpressio
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="412" height="30" uuid="32f7a07b-d1af-4e6e-8b5f-bb6e0cb224da"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Totais do Nível:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="412" y="0" width="68" height="30" uuid="85c55b24-c5d9-46e2-a5c6-157d7a43ce2e"/>
+				<textFieldExpression><![CDATA[$V{TOTAL_SALARIO_GERAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="92" height="30" uuid="e8b06cfa-bbc2-4044-878b-6689cdc133a9"/>
+				<textFieldExpression><![CDATA[$V{TOTAL_REMUNERACAO_GERAL}]]></textFieldExpression>
+			</textField>
+		</band>
 	</summary>
 </jasperReport>
