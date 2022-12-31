@@ -124,9 +124,22 @@ $F{nivel}.equals("SENIOR") ? "SENIOR (SR)" : "PLENO (PL)"]]></textFieldExpressio
 		<groupFooter>
 			<band height="57">
 				<textField>
-					<reportElement x="413" y="0" width="50" height="30" uuid="a1f80376-6995-44bc-9a58-87324ecf004c"/>
+					<reportElement x="412" y="0" width="51" height="30" uuid="a1f80376-6995-44bc-9a58-87324ecf004c"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
 					<textFieldExpression><![CDATA[$V{TOTAL_SALARIO_GROUP}]]></textFieldExpression>
 				</textField>
+				<textField pattern="¤ #,##0.##;¤ -#,##0.##">
+					<reportElement style="estilo_cores_alternadas" x="463" y="0" width="109" height="30" uuid="f6ff1fcf-912b-410a-8491-5afd0ec39502"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$V{TOTAL_REMUNERACAO_GROUP}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="412" height="30" uuid="c70996bc-7060-4b71-9b1c-fe056f02318f"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Totais do Nível:]]></text>
+				</staticText>
 			</band>
 		</groupFooter>
 	</group>
