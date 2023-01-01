@@ -19,6 +19,33 @@
 			<style mode="Opaque" backcolor="#CCFFFF"/>
 		</conditionalStyle>
 	</style>
+	<subDataset name="GraficoQuantidadeUF" uuid="40f08f5a-71a3-47af-9aa3-8e28bcc944e5">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL JASPERRELATORIO Adapter "/>
+		<queryString language="SQL">
+			<![CDATA[select 
+	count(1) as quantidade, e.uf
+from 
+	jaspercurso.enderecos e
+join jaspercurso.funcionarios f on 
+	f.id_endereco = e.id_endereco
+group by e.uf
+order by quantidade asc]]>
+		</queryString>
+		<field name="quantidade" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.name" value="quantidade"/>
+			<property name="com.jaspersoft.studio.field.label" value="quantidade"/>
+		</field>
+		<field name="uf" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="uf"/>
+			<property name="com.jaspersoft.studio.field.label" value="uf"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="enderecos"/>
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<group name="uf">
+			<groupExpression><![CDATA[$F{uf}]]></groupExpression>
+		</group>
+	</subDataset>
 	<queryString language="SQL">
 		<![CDATA[SELECT jaspercurso.empresas.razao_social,
 	jaspercurso.empresas.cnpj,
@@ -304,7 +331,7 @@ $F{nivel}.equals("SENIOR") ? "SENIOR (SR)" : "PLENO (PL)"]]></textFieldExpressio
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="30" splitType="Stretch">
+		<band height="230" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="412" height="30" uuid="32f7a07b-d1af-4e6e-8b5f-bb6e0cb224da"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -322,6 +349,28 @@ $F{nivel}.equals("SENIOR") ? "SENIOR (SR)" : "PLENO (PL)"]]></textFieldExpressio
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{salario}.add( $F{salario}.multiply($F{bonus} ) )]]></textFieldExpression>
 			</textField>
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="30" width="200" height="200" uuid="33056032-55ed-494e-b181-6dead1f39757"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset resetType="Report">
+						<datasetRun subDataset="GraficoQuantidadeUF" uuid="6022e0b1-d030-4532-970c-5aaf1b10ad57">
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+					</dataset>
+					<keyExpression><![CDATA[$F{uf}]]></keyExpression>
+					<valueExpression><![CDATA[$F{quantidade}]]></valueExpression>
+					<labelExpression><![CDATA[$F{uf} + "(" + $F{quantidade} + ")"]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
 		</band>
 	</summary>
 </jasperReport>
