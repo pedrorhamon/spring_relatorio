@@ -331,7 +331,7 @@ $F{nivel}.equals("SENIOR") ? "SENIOR (SR)" : "PLENO (PL)"]]></textFieldExpressio
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="230" splitType="Stretch">
+		<band height="347" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="412" height="30" uuid="32f7a07b-d1af-4e6e-8b5f-bb6e0cb224da"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -371,6 +371,36 @@ $F{nivel}.equals("SENIOR") ? "SENIOR (SR)" : "PLENO (PL)"]]></textFieldExpressio
 					<itemLabel/>
 				</piePlot>
 			</pieChart>
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="372" y="30" width="200" height="200" uuid="5223f9c3-b548-42d0-a397-41485e441a53"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset resetType="Report">
+						<datasetRun subDataset="GraficoQuantidadeUF" uuid="0f895325-4f3b-46e9-809d-b4103a6a0270">
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["SERIES 1"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{uf}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{quantidade}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
 		</band>
 	</summary>
 </jasperReport>
