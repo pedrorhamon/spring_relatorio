@@ -46,6 +46,37 @@ order by quantidade asc]]>
 			<groupExpression><![CDATA[$F{uf}]]></groupExpression>
 		</group>
 	</subDataset>
+	<subDataset name="GraficoQuantidadeUFGrupo" uuid="287218aa-8966-4fc1-9830-ceb0b36e03cb">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL JASPERRELATORIO Adapter "/>
+		<parameter name="NIVEL_DESC" class="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT count( 1) AS quantidade,
+	e.uf
+FROM jaspercurso.enderecos e
+	join jaspercurso.funcionarios f ON 
+	 f.id_endereco = e.id_endereco 
+	join jaspercurso.niveis n ON 
+	 f.id_nivel = n.id_nivel 
+WHERE 
+	 n.nivel LIKE $P{NIVEL_DESC} 
+GROUP BY e.uf
+ORDER BY quantidade ASC]]>
+		</queryString>
+		<field name="quantidade" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.name" value="quantidade"/>
+			<property name="com.jaspersoft.studio.field.label" value="quantidade"/>
+		</field>
+		<field name="uf" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="uf"/>
+			<property name="com.jaspersoft.studio.field.label" value="uf"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="enderecos"/>
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<group name="uf">
+			<groupExpression><![CDATA[$F{uf}]]></groupExpression>
+		</group>
+	</subDataset>
 	<queryString language="SQL">
 		<![CDATA[SELECT jaspercurso.empresas.razao_social,
 	jaspercurso.empresas.cnpj,
@@ -151,7 +182,7 @@ $F{nivel}.equals("SENIOR") ? "SENIOR (SR)" : "PLENO (PL)"]]></textFieldExpressio
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="30">
+			<band height="230">
 				<textField>
 					<reportElement x="412" y="0" width="51" height="30" uuid="a1f80376-6995-44bc-9a58-87324ecf004c"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle"/>
@@ -169,6 +200,64 @@ $F{nivel}.equals("SENIOR") ? "SENIOR (SR)" : "PLENO (PL)"]]></textFieldExpressio
 					</textElement>
 					<text><![CDATA[Totais do Nível:]]></text>
 				</staticText>
+				<pieChart>
+					<chart evaluationTime="Group" evaluationGroup="Group1">
+						<reportElement x="0" y="30" width="200" height="200" uuid="c4198591-1a10-40ab-b3b6-880a5e76b6bd"/>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<pieDataset>
+						<dataset resetType="Report">
+							<datasetRun subDataset="GraficoQuantidadeUFGrupo" uuid="098e49b2-28bb-4ca7-8bca-f9f275d6e829">
+								<datasetParameter name="NIVEL_DESC">
+									<datasetParameterExpression><![CDATA[$F{nivel}]]></datasetParameterExpression>
+								</datasetParameter>
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
+						</dataset>
+						<keyExpression><![CDATA[$F{uf}]]></keyExpression>
+						<valueExpression><![CDATA[$F{quantidade}]]></valueExpression>
+						<labelExpression><![CDATA[$F{uf} + "(" + $F{quantidade} + ")"]]></labelExpression>
+					</pieDataset>
+					<piePlot>
+						<plot/>
+						<itemLabel/>
+					</piePlot>
+				</pieChart>
+				<barChart>
+					<chart evaluationTime="Group" evaluationGroup="Group1">
+						<reportElement x="372" y="30" width="200" height="200" uuid="c32e1251-f162-416d-b5ca-071104b76ac8"/>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<categoryDataset>
+						<dataset resetType="Report">
+							<datasetRun subDataset="GraficoQuantidadeUFGrupo" uuid="dcfa8372-dc04-4fb2-8b66-57c0ce8b7a92">
+								<datasetParameter name="NIVEL_DESC">
+									<datasetParameterExpression><![CDATA[$F{nivel}]]></datasetParameterExpression>
+								</datasetParameter>
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
+						</dataset>
+						<categorySeries>
+							<seriesExpression><![CDATA[$F{uf} + "(" + $F{quantidade} + ")"]]></seriesExpression>
+							<categoryExpression><![CDATA[0]]></categoryExpression>
+							<valueExpression><![CDATA[0]]></valueExpression>
+						</categorySeries>
+					</categoryDataset>
+					<barPlot>
+						<plot/>
+						<itemLabel/>
+						<categoryAxisFormat>
+							<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+						</categoryAxisFormat>
+						<valueAxisFormat>
+							<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+						</valueAxisFormat>
+					</barPlot>
+				</barChart>
 			</band>
 		</groupFooter>
 	</group>
@@ -331,7 +420,7 @@ $F{nivel}.equals("SENIOR") ? "SENIOR (SR)" : "PLENO (PL)"]]></textFieldExpressio
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="347" splitType="Stretch">
+		<band height="230" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="412" height="30" uuid="32f7a07b-d1af-4e6e-8b5f-bb6e0cb224da"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
