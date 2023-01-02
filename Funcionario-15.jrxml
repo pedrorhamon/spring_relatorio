@@ -254,7 +254,6 @@ $F{tipo_fone}.equals("RES") ? "Residencial": "Comercial"]]></textFieldExpression
 				</jr:list>
 			</componentElement>
 		</band>
-		<band height="30"/>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
