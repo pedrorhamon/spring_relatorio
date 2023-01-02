@@ -159,7 +159,11 @@ order by c.titulo asc]]>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>
-		<band splitType="Stretch"/>
+		<band height="1" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="99" height="1" uuid="fabcbbf6-c21e-4715-9c72-0f2c55c4d52d"/>
+			</break>
+		</band>
 	</background>
 	<title>
 		<band height="58" splitType="Stretch">
@@ -310,7 +314,7 @@ order by c.titulo asc]]>
 						<jr:detailCell style="Table 1_TD" height="30">
 							<textField pattern="dd/MM/yyyy">
 								<reportElement x="0" y="0" width="143" height="30" uuid="cb0c6802-8b8c-483c-8639-bb023b22fd70"/>
-								<textFieldExpression><![CDATA[$F{data_demissao}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{data_demissao} == null ? " - " : $F{data_demissao}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
