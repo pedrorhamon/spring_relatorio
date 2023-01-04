@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b4686e93-beca-47b6-afda-70069b419ccb">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="316"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="675"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL JASPERRELATORIO Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[select jaspercurso.empresas.razao_social,
+jaspercurso.empresas.cnpj,
+jaspercurso.funcionarios.nome,
+jaspercurso.funcionarios.foto,
+jaspercurso.funcionarios.data_admissao,
+jaspercurso.funcionarios.data_demissao,
+jaspercurso.cargos.titulo,
+jaspercurso.enderecos.uf,
+jaspercurso.enderecos.cidade,
+concat("http://www.starreports.com.br/certificados?cid=", jaspercurso.funcionarios.id_funcionario) as qrcode
+from jaspercurso.empresas,
+jaspercurso.funcionarios
+inner join jaspercurso.cargos on 
+jaspercurso.funcionarios.id_cargo = jaspercurso.cargos.id_cargo
+inner join jaspercurso.enderecos on 
+jaspercurso.funcionarios.id_endereco = jaspercurso.enderecos.id_endereco
+inner join jaspercurso.niveis on 
+jaspercurso.funcionarios.id_nivel = jaspercurso.niveis.id_nivel
+where
+jaspercurso.funcionarios.data_demissao is not null
+and 
+jaspercurso.niveis.id_nivel = 1
+]]>
+	</queryString>
+	<field name="razao_social" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="razao_social"/>
+		<property name="com.jaspersoft.studio.field.label" value="razao_social"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresas"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cnpj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cnpj"/>
+		<property name="com.jaspersoft.studio.field.label" value="cnpj"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresas"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="foto" class="byte[]">
+		<property name="com.jaspersoft.studio.field.name" value="foto"/>
+		<property name="com.jaspersoft.studio.field.label" value="foto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_admissao" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="data_admissao"/>
+		<property name="com.jaspersoft.studio.field.label" value="data_admissao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_demissao" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="data_demissao"/>
+		<property name="com.jaspersoft.studio.field.label" value="data_demissao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionarios"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="titulo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.label" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cargos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="uf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="uf"/>
+		<property name="com.jaspersoft.studio.field.label" value="uf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="enderecos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cidade"/>
+		<property name="com.jaspersoft.studio.field.label" value="cidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="enderecos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qrcode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="qrcode"/>
+		<property name="com.jaspersoft.studio.field.label" value="qrcode"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
