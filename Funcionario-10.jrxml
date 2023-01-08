@@ -19,6 +19,9 @@
 			<style mode="Opaque" backcolor="#CCFFFF"/>
 		</conditionalStyle>
 	</style>
+	<parameter name="SUB_REPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString language="SQL">
 		<![CDATA[SELECT jaspercurso.empresas.razao_social,
 	jaspercurso.empresas.cnpj,
@@ -31,8 +34,7 @@
 FROM jaspercurso.empresas,
 	jaspercurso.funcionarios
 	INNER JOIN jaspercurso.enderecos ON 
-	 jaspercurso.funcionarios.id_endereco = jaspercurso.enderecos.id_endereco 
-	]]>
+	 jaspercurso.funcionarios.id_endereco = jaspercurso.enderecos.id_endereco]]>
 	</queryString>
 	<field name="razao_social" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="razao_social"/>
@@ -211,7 +213,7 @@ FROM jaspercurso.empresas,
 					<subreportParameterExpression><![CDATA[$F{id_funcionario}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["Funcionarios-10-subfone.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUB_REPORT_DIR} +"Funcionarios-10-subfone.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>
