@@ -22,6 +22,9 @@
 	<parameter name="SUB_REPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
+	<parameter name="SUB_REPORT_PARAM" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
 	<queryString language="SQL">
 		<![CDATA[SELECT jaspercurso.empresas.razao_social,
 	jaspercurso.empresas.cnpj,
@@ -213,7 +216,7 @@ FROM jaspercurso.empresas,
 					<subreportParameterExpression><![CDATA[$F{id_funcionario}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUB_REPORT_DIR} +"Funcionarios-10-subfone.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUB_REPORT_PARAM} != null ? $P{SUB_REPORT_PARAM} : $P{SUB_REPORT_DIR} +"Funcionarios-10-subfone.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>
