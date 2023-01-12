@@ -25,6 +25,9 @@
 	<parameter name="SUB_REPORT_PARAM" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false">
 		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
 	</parameter>
+	<parameter name="IMAGEM_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString language="SQL">
 		<![CDATA[SELECT jaspercurso.empresas.razao_social,
 	jaspercurso.empresas.cnpj,
@@ -86,7 +89,7 @@ FROM jaspercurso.empresas,
 		<band height="58" splitType="Stretch">
 			<image>
 				<reportElement mode="Opaque" x="0" y="0" width="572" height="58" backcolor="#00D4FF" uuid="507e72fa-2827-4648-976c-dd9bead8f89e"/>
-				<imageExpression><![CDATA["image/logo-555x50.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{IMAGEM_DIR} + "image/logo-555x50.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
